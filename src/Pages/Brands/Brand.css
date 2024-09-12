@@ -1,0 +1,103 @@
+.container05 {
+  width: 460%; 
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f5f5f5;
+  color: black;
+}
+
+.form-container05 {
+  width: 100%;
+  max-width: 500px; /* Adjust the width as needed */
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  padding: 20px;
+  height: 70%;
+  box-shadow: 0px 4px 10px rgba(72, 174, 217, .5); /* Adding shadow effect */
+}
+
+.form-container05:hover {
+  box-shadow: 0px 4px 10px rgba(16, 178, 189, 1.5); /* Darken shadow on hover */
+}
+
+.title05 {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.label05, .upload-title05 {
+  font-weight: bold;
+  /* color: #ecf0f1; */
+  margin-bottom: 10px;
+  display: block;
+}
+
+.input05, .button05 {
+  width: 98%;
+  padding: 10px;
+  border-radius: 5px;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.input05 {
+  border: 1px solid #7f8c8d;
+  background-color: #ecf0f1;
+  color: #2c3e50;
+}
+
+.upload-section05 {
+  margin-bottom: 20px;
+}
+
+.upload-box05 {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.image-upload05 {
+  flex: 1;
+  height: 100px;
+  border: 2px dashed #ecf0f1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #98c1ea;
+  position: relative;
+}
+
+.image-upload-label05 {
+  cursor: pointer;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #666;
+}
+
+.image-input05 {
+  display: none;
+}
+
+.button05 {
+  background-color: #e74c3c;
+  color: #ecf0f1;
+  border: none;
+  cursor: pointer;
+}
+
+.button05:hover {
+  background-color: #c0392b;
+}
+
+.error05 {
+  color: #e74c3c;
+  margin-top: 10px;
+}

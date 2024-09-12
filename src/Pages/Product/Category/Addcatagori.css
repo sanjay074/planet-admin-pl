@@ -1,0 +1,105 @@
+.form-container5 {
+  width: 235%; 
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f5f5f5; /* Optional: Change background color */
+}
+
+.form-containerMiddle5 {
+  width: 100%;
+  max-width: 500px; /* Adjust the width as needed */
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  padding: 20px;
+  height: 60%;
+  box-shadow: 0px 4px 10px rgba(65, 197, 201, 2.5); /* Adding shadow effect */
+}
+
+.form-containerMiddle5:hover {
+  box-shadow: 0px 4px 10px rgba(50, 104, 137, 4.5); /* Darken shadow on hover */
+}
+
+h2 {
+  text-align: start;
+  margin-bottom: 20px;
+  background-color: rgb(118, 189, 209);
+  border-radius: 5px;
+  padding-left: 10px;
+  color: black;
+}
+
+h2:hover {
+  background-color: rgb(16, 166, 189);
+}
+
+.form-group5 {
+  margin-bottom: 20px;
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.form-group5 label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.form-group5 input,
+.form-group5 textarea {
+  width: 100%; 
+  max-width: 100%; 
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  background-color: whitesmoke;
+  color: black;
+}
+
+.form-group5 textarea {
+  resize: vertical;
+  height: 100px;
+}
+
+.save-button5 {
+  display: block;
+  margin-top: 20px; 
+  width: 100%;
+  padding: 10px;
+  background-color: #6c63ff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+} 
+
+.save-button5:hover {
+  background-color: #5a52e5;
+}
+
+.upload-images5 {
+  margin-bottom: 20px;
+}
+
+.upload-boxes5 {
+  display: flex;
+  gap: 10px;
+}
+
+.upload-box5 {
+  width: 100px;
+  height: 100px;
+  border: 1px solid #ddd;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.upload-preview5 {
+  max-width: 100%;
+  max-height: 100%;
+}

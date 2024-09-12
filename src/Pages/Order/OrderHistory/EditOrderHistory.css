@@ -1,0 +1,50 @@
+.edit-order-container02 {
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .title02 {
+    margin-bottom: 20px;
+  }
+  
+  .form02 {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .form-group02 {
+    margin-bottom: 15px;
+  }
+  
+  .label02 {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+  
+  .input02, .textarea02 {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+  }
+  
+  .textarea02 {
+    height: 100px;
+  }
+  
+  .button02 {
+    padding: 10px 20px;
+    border: none;
+    background-color: #007bff;
+    color: white;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .button02:hover {
+    background-color: #0056b3;
+  }
+  

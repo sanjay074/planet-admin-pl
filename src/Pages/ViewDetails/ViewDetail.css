@@ -1,0 +1,164 @@
+/* Container for the entire card */
+.cardViewDetails {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Full viewport height */
+    background-color: #f4f4f9;
+    width: 156%;
+}
+
+/* Main card styling */
+.card1234ViewDetails {
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    width: 80%;
+    padding: 20px;
+    animation: fadeInViewDetails 0.5s ease-in-out;
+    position: relative;
+    display: flex; /* Flex layout for left and right sections */
+    flex-direction: row;
+    gap: 80px;
+    margin-top: 5rem;
+    margin-left: -6rem;
+}
+
+/* Animation for the card to fade in */
+@keyframes fadeInViewDetails {
+    0% {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Left section for ViewDetails content */
+.leftViewDetails {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* Header styling */
+.heads1ViewDetails h1 {
+    text-align: center;
+    font-size: 2.5rem;
+    color: #333;
+    margin-bottom: 30px;
+    font-weight: 700;
+}
+
+/* Dashboard content styling */
+.sales-dashboardViewDetails {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* Info section containing the data */
+.infoViewDetails {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 100%;
+    justify-content: center;
+}
+
+/* Each row of data within the card */
+.card-rowViewDetails {
+    display: flex;
+    justify-content: space-between;
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Hover effect for each data row */
+.card-rowViewDetails:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Paragraph text within each data row */
+.card-rowViewDetails p {
+    margin: 0;
+    font-size: 1.25rem;
+    color: #555;
+    font-weight: 600;
+}
+
+/* Highlighted numbers within the data rows */
+.card-rowViewDetails span {
+    font-weight: bold;
+    color: #007bff;
+    font-size: 1.25rem;
+}
+
+/* Right section for AnalyticsReport */
+.rightViewDetails {
+    flex: 1;
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    color: black;
+}
+
+/* Analytics report styling */
+.analyticsreport h3 {
+    margin-bottom: 20px;
+    font-size: 20px;
+}
+
+.report {
+    font-size: 16px;
+}
+
+.report p {
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+.report span.positive {
+    color: #28a745;
+    font-weight: bold;
+}
+
+.report span.low {
+    color: #dc3545;
+    font-weight: bold;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .card1234ViewDetails {
+        flex-direction: column;
+        width: 90%;
+        padding: 20px;
+    }
+
+    .heads1ViewDetails h1 {
+        font-size: 2rem;
+    }
+
+    .card-rowViewDetails p,
+    .card-rowViewDetails span {
+        font-size: 1rem;
+    }
+
+    .leftViewDetails, .rightViewDetails {
+        width: 100%;
+        margin-right: 0;
+    }
+
+    .rightViewDetails {
+        margin-top: 20px;
+    }
+}

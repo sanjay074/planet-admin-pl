@@ -1,0 +1,1 @@
+export const BaseUrl='https://planetapi.akshtest.xyz/api/v1';

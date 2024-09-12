@@ -1,0 +1,79 @@
+/* src/components/CategoryPage.css */
+
+.category-page {
+  padding: 20px;
+  width: 255%;
+  /* height: auto; */
+  background-color: #f2f2f2;
+  color: black;
+  margin-top: 30px;
+}
+
+.category-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.category-actions .delete-button {
+  background-color: red;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  margin-right: 10px;
+}
+
+.category-actions .add-new-button {
+  background-color: purple;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  margin-right: 10px;
+}
+
+.category-table, .subcategory-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+}
+
+.category-table th, .category-table td,
+.subcategory-table th, .subcategory-table td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: center;
+  /* color: black; */
+}
+
+.category-table th, .subcategory-table th {
+  background-color: #f2f2f2;
+  color: black;
+}
+
+.action-buttons button {
+  margin: 0 5px;
+  padding: 5px 10px;
+  cursor: pointer;
+}
+
+.subcategory-section {
+  margin-top: 40px;
+}
+
+.subcategory-section h3 {
+  margin: 0;
+  display: inline-block;
+  margin-right: 20px;
+}
+
+.subcategory-section .add-new-button {
+  background-color: purple;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  margin-top: 10px;
+}

@@ -1,0 +1,54 @@
+
+.track-order-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+    background-color: whitesmoke;
+    color: black;
+    height: 100vh;
+    width: 500%;
+    margin-top: 3rem;
+    margin-left: 5px;
+  }
+  
+  .track-order-container h2 {
+    /* margin-bottom: 10px; */
+    margin-top: 20px;
+  }
+  
+  .track-order-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 1px solid green;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    width: 50%;
+    margin-top: 50px;
+  }
+  
+  .track-order-form input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid rgb(73, 178, 204);
+    border-radius: 5px;
+    background-color: black;
+    color: white;
+  }
+  
+  .track-order-form button {
+    padding: 10px 20px;
+    background-color: #9b59b6;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .track-order-form button:hover {
+    background-color: #8e44ad;
+  }
+  

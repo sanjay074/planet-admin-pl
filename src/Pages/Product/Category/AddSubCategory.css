@@ -1,0 +1,59 @@
+.classname03-form-container {
+  width: 470%; 
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f5f5f5; 
+}
+
+.classname03-form-containerMiddle {
+  width: 100%;
+  max-width: 500px; 
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  padding: 20px;
+  height: 60%;
+  box-shadow: 0px 4px 10px rgba(33, 131, 176, 1.5); /* Adding shadow effect */
+}
+
+.classname03-form-containerMiddle:hover {
+  box-shadow: 0px 4px 10px rgba(110, 182, 216, 4.5); /* Darken shadow on hover */
+}
+
+.classname03-heading {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.classname03-form-group {
+  margin-bottom: 20px;
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.classname03-form-control {
+  width: 100%;
+}
+
+.classname03-textfield {
+  margin-top: 10px;
+}
+
+.classname03-button {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  background-color: #6c63ff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.classname03-button:hover {
+  background-color: #5a52e5;
+}

@@ -1,0 +1,147 @@
+/* Container Styles */
+.classname01-container {
+    display: flex;
+    justify-content: center;
+    margin: 50px 5px;
+    background-color: #fff;
+    height: auto;
+    width: 150%;
+  }
+  
+  .classname01-card {
+    display: flex;
+    flex-direction: row;
+    /* border: 1px solid #ddd; */
+    border-radius: 8px;
+    overflow: hidden;
+    width: 100%;
+    /* max-width: 1200px; */
+    margin: 0 auto;
+  }
+  
+  .classname01-image-col {
+    position: relative;
+    flex: 1;
+  }
+  
+  .classname01-product-image {
+    object-fit: cover;
+    width: 100%;
+    height: 80%;
+    margin-top: 2.5rem;
+  }
+  
+  .classname01-stock-button {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 10px 20px;
+    background-color: #28a745;
+    /* color: #fff; */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .classname01-details-col {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    flex: 2;
+  }
+  
+  .classname01-order-title {
+    background-color: #6392c1;
+    color: #000;
+    padding: 10px;
+    margin-bottom: 15px;
+    text-align: center;
+    border-radius: 5px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .classname01-order-details {
+    display: flex;
+    flex-direction: column;
+    color: black;
+
+
+  }
+  
+  .classname01-order-detail {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    padding: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+  }
+  
+  .classname01-order-field {
+    color: black;
+    padding: 5px;
+    border-radius: 5px;
+    margin-right: 10px;
+  }
+  
+  .classname01-order-value {
+    flex: 1;
+    padding: 5px;
+    text-align: end;
+  }
+  
+  .classname01-btn {
+    padding: 10px 20px;
+    background-color: #6c757d;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 20px;
+  }
+  
+  /* Mobile Styles */
+  @media (max-width: 768px) {
+    .classname01-card {
+      flex-direction: column;
+    }
+  
+    .classname01-product-image {
+      width: 100%;
+      height: auto;
+    }
+  
+    .classname01-stock-button {
+      position: static;
+      width: auto;
+      margin: 10px 0;
+    }
+  
+    .classname01-details-col {
+      padding: 10px;
+    }
+  
+    .classname01-order-title {
+      margin-top: 0;
+    }
+  
+    .classname01-order-detail {
+      width: 100%;
+    }
+  
+    .classname01-order-field {
+      font-size: 14px;
+    }
+  
+    .classname01-order-value {
+      font-size: 14px;
+    }
+  
+    .classname01-btn {
+      width: 100%;
+    }
+  }
+  

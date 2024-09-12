@@ -1,0 +1,135 @@
+/* Container for the entire ViewRecentOrder component */
+.classname09-container {
+    display: flex;
+    justify-content: center;
+    /* padding: 20px; */
+    background-color: #f4f4f4;
+    margin-top: 3rem;
+    width: 212%;
+  }
+  
+  /* Card for the main content */
+  .classname09-card {
+    display: flex;
+    flex-direction: row;
+    max-width: 1200px;
+    width: 100%;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+  }
+  
+  /* Left section for order items */
+  .classname09-order-items-col {
+    flex: 1;
+    padding: 20px;
+    border-right: 1px solid #e0e0e0;
+    background-color: #f9f9f9;
+  }
+  
+  /* Title for the order items section */
+  .classname09-items-title {
+    font-size: 24px;
+    margin-bottom: 15px;
+    color: #333333;
+  }
+  
+  /* Individual item details */
+  .classname09-item-detail {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+    padding: 10px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Image for each product */
+  .classname09-item-image {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-right: 15px;
+  }
+  
+  /* Info section for each product */
+  .classname09-item-info {
+    flex: 1;
+  }
+  
+  /* Field label for product details */
+  .classname09-item-field {
+    font-size: 16px;
+    color: #555555;
+    margin-bottom: 5px;
+  }
+  
+  /* Value for product details */
+  .classname09-item-value {
+    font-size: 16px;
+    color: #333333;
+  }
+  
+  /* Right section for order details */
+  .classname09-details-col {
+    flex: 1.5;
+    padding: 20px;
+    background-color: #ffffff;
+  }
+  
+  /* Title for the order details section */
+  .classname09-order-title {
+    font-size: 24px;
+    margin-bottom: 15px;
+    color: #333333;
+  }
+  
+  /* Container for the order details */
+  .classname09-order-details {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  /* Individual order detail entry */
+  .classname09-order-detail {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Field label for order details */
+  .classname09-order-field {
+    font-weight: bold;
+    color: #555555;
+  }
+  
+  /* Value for order details */
+  .classname09-order-value {
+    color: #333333;
+  }
+  
+  /* Back button styling */
+  .classname09-btn {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #ffffff;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    text-align: center;
+    transition: background-color 0.3s ease;
+    display: inline-block;
+  }
+  
+  .classname09-btn:hover {
+    background-color: #0056b3;
+  }
+  

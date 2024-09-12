@@ -1,0 +1,107 @@
+/* RecentOrders.css */
+
+.container {
+  max-height: auto;
+   width: 110%;
+  height: max-content;
+  margin-top: 60px;
+  background-color: whitesmoke;
+  color: black;
+  
+  margin-left: 15px;
+}
+
+.actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.actions button, .actions input {
+  margin: 0 5px;
+  padding: 10px;
+  border: none;
+  cursor: pointer;
+}
+
+/* .search {
+  flex-grow: 1;
+  padding: 10px;
+  border-radius: 5px;
+} */
+
+.delete {
+  background-color: red;
+  color: white;
+}
+
+.add-new {
+  background-color: purple;
+  color: white;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+thead {
+  background-color: #F0F0FC;
+}
+
+th, td {
+  padding: 10px;
+  text-align: left;
+  border: 1px solid #ddd;
+}
+
+img {
+  width: 50px;
+  height: 50px;
+  margin-right: 10px;
+  vertical-align: middle;
+}
+
+.product-details {
+  display: flex;
+  align-items: center;
+}
+
+.product-details img {
+  margin-right: 10px;
+ 
+}
+
+.payment-success {
+  color: green;
+  border-radius: 5px;
+  padding: 2px 5px;
+  background-color: #d4edda; 
+}
+
+.payment-pending {
+  color: red;
+  border-radius: 5px;
+  padding: 2px 5px;
+  
+}
+
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.pagination button {
+  margin: 0 5px;
+  padding: 10px;
+  border: none;
+  cursor: pointer;
+}
+
+.pagination .active {
+  background-color: purple;
+  color: white;
+}

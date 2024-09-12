@@ -1,0 +1,55 @@
+.app {
+  display: flex;
+  width: 100%;
+  height: auto;
+  /* flex-direction: column; */
+}
+
+ /* .container {
+      width: 157%;
+      height: fit-content;
+      background-color: whitesmoke;
+      color: black;
+      margin-left: 5px;
+      margin-top: 60px;
+   }  */
+
+
+
+.main-content {
+  /* flex: 1;
+  display: flex;
+  flex-direction: column;
+  width: calc(100% - 20%); */
+  width: 100%;
+  
+  
+}
+
+
+/* .header {
+  position: fixed;
+  top: 0;
+  width: 98%;
+  background-color: #fff;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  padding: 10px 20px;
+  z-index: 1000;
+} */
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  height: auto;
+  background-color: #fff;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  margin-top: 50px;
+  width: 200px;
+}
+/* .dashboard-container {
+  margin-top: 100px; 
+  padding: 20px;
+  color: white;
+  width: 100%;
+  flex: 1;
+} */

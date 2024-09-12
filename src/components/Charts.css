@@ -1,0 +1,113 @@
+/* Base Styles */
+.charts {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* background-color: #f8f8f8; */
+  color: black;
+  margin-top: 5px;
+  width: 112%; /* Adjusted width for better responsiveness */
+  margin-left: auto; /* Center the charts container */
+  margin-right: auto; /* Center the charts container */
+  padding: 10px; /* Added padding for better spacing */
+  box-sizing: border-box; /* Ensure padding doesn't affect width */
+}
+
+.chart-container {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  margin-left: 0; /* Remove left margin */
+  margin-top: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+  flex-wrap: wrap; /* Allow wrapping on smaller screens */
+  background-color: white;
+}
+
+.chart-info-card {
+  width: 25%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-right: 20px;
+  box-sizing: border-box; /* Ensure padding doesn't affect width */
+}
+
+.chart-info-item {
+  height: 50px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #ddd;
+  margin-bottom: 10px;
+  padding: 0 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  color: black;
+  border-radius: 5px;
+}
+
+.view-reports-button {
+  height: 50px;
+  width: 100%;
+  background-color: blue;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+}
+
+.chart {
+  width: 70%;
+}
+
+.orders-analytics-container {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+  background-color: #f8f8f8;
+  color: black;
+  flex-wrap: wrap; /* Allow wrapping on smaller screens */
+}
+
+/* Media Queries */
+
+/* Tablets */
+@media (max-width: 768px) {
+  .chart-container {
+    flex-direction: column; /* Stack charts and info card vertically */
+    align-items: center; /* Center-align the contents */
+  }
+
+  .chart-info-card, .chart {
+    width: 90%; /* Make info card and chart take up more space */
+    margin-bottom: 20px; /* Add space between elements */
+  }
+
+  .view-reports-button {
+    width: 100%; /* Ensure button is full width */
+  }
+}
+
+/* Mobile Phones */
+@media (max-width: 480px) {
+  .chart-info-card, .chart {
+    width: 100%; /* Full width for info card and chart on mobile */
+  }
+
+  .chart-info-item {
+    height: 40px; /* Reduce height for smaller screens */
+    font-size: 14px; /* Adjust font size for smaller screens */
+  }
+
+  .view-reports-button {
+    height: 45px; /* Slightly smaller button for mobile */
+    font-size: 14px; /* Adjust font size for smaller screens */
+  }
+
+  .orders-analytics-container {
+    flex-direction: column; /* Stack orders and analytics vertically */
+    align-items: center; /* Center-align contents */
+  }
+}

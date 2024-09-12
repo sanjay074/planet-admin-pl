@@ -1,0 +1,129 @@
+.menu {
+  flex: 1;
+}
+
+.menu-item {
+  display: flex;
+  align-items: center;
+  padding: 10px 15px;
+  font-size: 16px;
+  color: black;
+  text-decoration: none;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+  font-size: large;
+}
+
+.menu-item:hover {
+  background-color: #457cd6;
+}
+
+.menu-item.active {
+  color: #1c0a93;
+  background-color: #e0e7ff;
+}
+
+.menu-item.active .icon {
+  color: #3d2bb6;
+}
+
+.menu-item .icon {
+  margin-right: 10px;
+  font-size: 20px;
+}
+
+.menu-item .expand-icon {
+  margin-left: auto;
+}
+
+.logout {
+  padding: 10px 15px;
+  font-size: 16px;
+  color: #fff;
+  background-color: #333;
+  text-align: center;
+  border-radius: 4px;
+  margin-bottom: 40px;
+  margin-top: 3rem;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
+
+.logout:hover {
+  background-color: #555;
+}
+
+.submenu {
+  background-color: whitesmoke;
+  padding-left: 20px;
+}
+
+.submenu .menu-item.active {
+  color: #1c0a93;
+}
+
+.menu-subitem {
+  display: block;
+  padding: 10px 20px;
+  text-decoration: none;
+  color: black;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.menu-subitem:hover {
+  background-color: #f1f1f1;
+}
+
+.menu-subitem.active {
+  background-color: #727fac;
+  color: white;
+}
+
+/* Responsive Styles */
+@media (max-width: 1200px) {
+  .sidebar {
+    max-width: 200px;
+    padding: 15px;
+  }
+
+  .menu-item {
+    font-size: 14px;
+  }
+
+  .menu-item .icon {
+    font-size: 18px;
+  }
+}
+
+@media (max-width: 768px) {
+  .sidebar {
+    width: 100%;
+    padding: 10px;
+  }
+
+  .menu-item {
+    padding: 10px;
+    font-size: 14px;
+  }
+
+  .menu-subitem {
+    padding: 8px 15px;
+    font-size: 14px;
+  }
+
+  .submenu {
+    padding-left: 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  .sidebar {
+    display: none; /* Hide sidebar on very small screens */
+  }
+
+  .app {
+    width: 100%;
+    padding: 0;
+  }
+}
