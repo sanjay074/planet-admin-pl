@@ -15,6 +15,7 @@ export const User = () => {
       try {
         const result = await GetAllUserList();
         const data = Array.isArray(result.data.alluser) ? result.data.alluser : [];
+        console.log("data===>",data)
         setUserList(data);
       } catch (error) {
         console.error("Facing problem in getAllUserData", error);
@@ -27,10 +28,11 @@ export const User = () => {
     setSearchQuery(e.target.value);
   };
 
-  // Filter userList based on the search query
-  const filteredUsers = userList.filter((user) =>
-    user.phone.toLowerCase().includes(searchQuery.toLowerCase())
+  // Filter userList based on the search query, using optional chaining to prevent errors
+  const filteredUsers = searchQuery === "" ? userList : userList.filter((user) =>
+    user.firstName?.toLowerCase().includes(searchQuery.toLowerCase())
   );
+  console.log("filter",filteredUsers)
 
   const firstPage = (currentPage - 1) * itemsPerPage;
   const lastPage = firstPage + itemsPerPage;
@@ -42,7 +44,7 @@ export const User = () => {
     const content = userList
       .map(
         (user) =>
-          `Phone: ${user.phone}, ID: ${user._id}, Created At: ${user.createdAt}`
+          `Phone: ${user?.phone}, ID: ${user?._id}, Created At: ${user?.createdAt}`
       )
       .join("\n");
     const blob = new Blob([content], { type: "text/plain;charset=utf-8" });
@@ -142,7 +144,7 @@ export const User = () => {
         <button onClick={printPage}>Print</button>
         <input
           type="text"
-          placeholder="Search by Phone Number"
+          placeholder="Search by first name"
           className="search"
           value={searchQuery}
           onChange={handleSearchChange}
@@ -153,25 +155,27 @@ export const User = () => {
         <thead>
           <tr>
             <th>Phone Number</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Email</th>
             <th>Created At</th>
             <th>Updated At</th>
-            <th>Action</th>
           </tr>
         </thead>
         <tbody>
           {filteredUsers.length === 0 ? (
             <tr>
-              <td colSpan="4">No user available</td>
+              <td colSpan="6">No user available</td>
             </tr>
           ) : (
             currentItems.map((user) => (
               <tr key={user._id}>
-                <td>{user.phone}</td>
-                <td>{new Date(user.createdAt).toLocaleDateString()}</td>
-                <td>{new Date(user.updatedAt).toLocaleDateString()}</td>
-                {/* <td>
-                  <button>❌</button>
-                </td> */}
+                <td>{user?.phone || "N/A"}</td>
+                <td>{user?.firstName || "N/A"}</td>
+                <td>{user?.lastName || "N/A"}</td>
+                <td>{user?.email || "N/A"}</td>
+                <td>{new Date(user?.createdAt).toLocaleDateString()}</td>
+                <td>{new Date(user?.updatedAt).toLocaleDateString()}</td>
               </tr>
             ))
           )}
