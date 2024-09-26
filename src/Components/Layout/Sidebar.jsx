@@ -1,12 +1,12 @@
 import React, { useState } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
 import {
-  
+
   FaBoxOpen,
   FaTruck,
   FaTags,
   FaUsers,
- 
+
   FaSignOutAlt, // Added for Logout icon
 } from "react-icons/fa";
 import { FaCreditCard } from "react-icons/fa6";
@@ -67,7 +67,7 @@ const Sidebar = () => {
   };
 
   return (
-    <div className="w-64 bg-white h-screen shadow-lg">
+    <div className="w-64 bg-white h-screen shadow-lg mt-16">
       <div className="flex flex-col p-4 space-y-4">
         <NavLink
           to="/dashboard"
@@ -78,7 +78,7 @@ const Sidebar = () => {
           }
         >
           {/* <FaHome className="text-lg" /> */}
-          <HomeIcon/>
+          <HomeIcon />
           <span>Dashboard</span>
         </NavLink>
 
@@ -86,8 +86,8 @@ const Sidebar = () => {
           className="flex items-center space-x-2 p-2 rounded-md cursor-pointer hover:bg-gray-100"
           onClick={toggleProductsDropdown}
         >
-        <BoxIcon/>  
-         
+          <BoxIcon />
+
           <span>Products</span>
           {productsDropdown ? (
             <DownArrowIcon className="ml-auto" />
@@ -168,8 +168,8 @@ const Sidebar = () => {
           className="flex items-center space-x-2 p-2 rounded-md cursor-pointer hover:bg-gray-100"
           onClick={toggleOrderDropdown}
         >
-        <DelhiverycarIcon />
-         
+          <DelhiverycarIcon />
+
           <span>Order</span>
           {orderDropdown ? <DownArrowIcon className="ml-auto" /> : <RightArrowIcon className="ml-auto" />}
         </div>
@@ -213,7 +213,7 @@ const Sidebar = () => {
           className="flex items-center space-x-2 p-2 rounded-md cursor-pointer hover:bg-gray-100"
           onClick={toggleHotOfferDropdown}
         >
-        <TagIcon/>
+          <TagIcon />
           {/* <FaTags className="text-lg" /> */}
           <span>Hot Offer</span>
           {hotOfferDropdown ? <DownArrowIcon className="ml-auto" /> : <RightArrowIcon className="ml-auto" />}
@@ -249,7 +249,7 @@ const Sidebar = () => {
           onClick={toggleBrandsDropdown}
         >
           {/* <FaUsers className="text-lg" /> */}
-         <BrandsIcon />
+          <BrandsIcon />
           <span>Brands</span>
           {brandsDropdown ? <DownArrowIcon className="ml-auto" /> : <RightArrowIcon className="ml-auto" />}
         </div>
@@ -334,7 +334,7 @@ const Sidebar = () => {
           onClick={handleLogout}
         >
           {/* <FaSignOutAlt className="text-lg" /> */}
-          <LogoutIcon/>
+          <LogoutIcon />
           <span>Logout</span>
         </div>
       </div>
