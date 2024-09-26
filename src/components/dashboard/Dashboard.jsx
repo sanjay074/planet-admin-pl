@@ -43,7 +43,7 @@ const Dashboard = () => {
     }, []);
     return (
         <>
-            <div className="dashboard">
+            <div className="dashboard mt-16">
                 <h3 className="h4">Good Morning </h3>
                 <p className="p1">here the today update </p>
                 <div className="stats">
