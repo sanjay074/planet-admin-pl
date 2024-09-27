@@ -21,7 +21,9 @@ import OrderDetails from './pages/order/OrderDetails';
 import { ViewOrderList } from './services/Allapi';
 import Brand from './pages/Brand/Brand';
 import BrandList from './pages/Brand/BrandList';
-import { ViewOrderList } from './Services/Allapi';
+import AddCategory from './pages/Product/Category/AddCategory';
+import AddSubCategory from './pages/Product/Category/AddSubCategory';
+import CategoryList from './pages/Product/Category/CategoryList';
 
 
 
@@ -63,6 +65,9 @@ const App = () => {
           <Route path='/OrderDetails/:id' element={<OrderDetails />} />
           <Route path='/Brand' element={<Brand />} />
           <Route path='/BrandList' element={<BrandList />} />
+          <Route path='/AddCategory' element={<AddCategory />} />
+          <Route path='/AddSubCategory' element={<AddSubCategory />} />
+          <Route path='/CategoryList' element={<CategoryList />} />
         </Route>
       </Routes>
     </Router>
