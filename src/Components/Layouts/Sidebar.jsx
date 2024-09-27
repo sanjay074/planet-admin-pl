@@ -93,8 +93,8 @@ const Sidebar = () => {
               to="/AddProduct"
               className={({ isActive }) =>
                 isActive
-                  ? "text-blue-600"
-                  : "hover:text-blue-600 transition-colors"
+                  ? "text-white bg-blue-600 p-2 rounded"
+                  : "hover:text-blue-600 transition-colors p-2"
               }
             >
               Add Product
@@ -103,8 +103,8 @@ const Sidebar = () => {
               to="/ProductList"
               className={({ isActive }) =>
                 isActive
-                  ? "text-blue-600"
-                  : "hover:text-blue-600 transition-colors"
+                  ? "text-white bg-blue-600 p-2 rounded"
+                  : "hover:text-blue-600 transition-colors p-2"
               }
             >
               Product List
@@ -124,8 +124,8 @@ const Sidebar = () => {
                   to="/AddCategory"
                   className={({ isActive }) =>
                     isActive
-                      ? "text-blue-600"
-                      : "hover:text-blue-600 transition-colors"
+                      ? "text-white bg-blue-600 p-2 rounded"
+                      : "hover:text-blue-600 transition-colors p-2"
                   }
                 >
                   Add Category
@@ -134,8 +134,8 @@ const Sidebar = () => {
                   to="/AddSubCategory"
                   className={({ isActive }) =>
                     isActive
-                      ? "text-blue-600"
-                      : "hover:text-blue-600 transition-colors"
+                      ? "text-white bg-blue-600 p-2 rounded"
+                      : "hover:text-blue-600 transition-colors p-2"
                   }
                 >
                   Add Sub Category
@@ -144,8 +144,8 @@ const Sidebar = () => {
                   to="/CategoryList"
                   className={({ isActive }) =>
                     isActive
-                      ? "text-blue-600"
-                      : "hover:text-blue-600 transition-colors"
+                      ? "text-white bg-blue-600 p-2 rounded"
+                      : "hover:text-blue-600 transition-colors p-2"
                   }
                 >
                   Category List
@@ -171,8 +171,8 @@ const Sidebar = () => {
               to="/NewOrder"
               className={({ isActive }) =>
                 isActive
-                  ? "text-blue-600"
-                  : "hover:text-blue-600 transition-colors"
+                  ? "text-white bg-blue-600 p-2 rounded"
+                  : "hover:text-blue-600 transition-colors p-2"
               }
             >
               New Order
@@ -181,8 +181,8 @@ const Sidebar = () => {
               to="/OrderHistory"
               className={({ isActive }) =>
                 isActive
-                  ? "text-blue-600"
-                  : "hover:text-blue-600 transition-colors"
+                  ? "text-white bg-blue-600 p-2 rounded"
+                  : "hover:text-blue-600 transition-colors p-2"
               }
             >
               Order History
@@ -191,8 +191,8 @@ const Sidebar = () => {
               to="/TrackOrder"
               className={({ isActive }) =>
                 isActive
-                  ? "text-blue-600"
-                  : "hover:text-blue-600 transition-colors"
+                  ? "text-white bg-blue-600 p-2 rounded"
+                  : "hover:text-blue-600 transition-colors p-2"
               }
             >
               Track Order
@@ -216,8 +216,8 @@ const Sidebar = () => {
               to="/InsertOffer"
               className={({ isActive }) =>
                 isActive
-                  ? "text-blue-600"
-                  : "hover:text-blue-600 transition-colors"
+                  ? "text-white bg-blue-600 p-2 rounded"
+                  : "hover:text-blue-600 transition-colors p-2"
               }
             >
               Insert Offer
@@ -226,8 +226,8 @@ const Sidebar = () => {
               to="/ViewOffer"
               className={({ isActive }) =>
                 isActive
-                  ? "text-blue-600"
-                  : "hover:text-blue-600 transition-colors"
+                  ? "text-white bg-blue-600 p-2 rounded"
+                  : "hover:text-blue-600 transition-colors p-2"
               }
             >
               View Offer
@@ -251,8 +251,8 @@ const Sidebar = () => {
               to="/Brand"
               className={({ isActive }) =>
                 isActive
-                  ? "text-blue-600"
-                  : "hover:text-blue-600 transition-colors"
+                  ? "text-white bg-blue-600 p-2 rounded"
+                  : "hover:text-blue-600 transition-colors p-2"
               }
             >
               Brands
@@ -261,8 +261,8 @@ const Sidebar = () => {
               to="/BrandList"
               className={({ isActive }) =>
                 isActive
-                  ? "text-blue-600"
-                  : "hover:text-blue-600 transition-colors"
+                  ? "text-white bg-blue-600 p-2 rounded"
+                  : "hover:text-blue-600 transition-colors p-2"
               }
             >
               Brands List
@@ -286,8 +286,8 @@ const Sidebar = () => {
               to="/User"
               className={({ isActive }) =>
                 isActive
-                  ? "text-blue-600"
-                  : "hover:text-blue-600 transition-colors"
+                  ? "text-white bg-blue-600 p-2 rounded"
+                  : "hover:text-blue-600 transition-colors p-2"
               }
             >
               User
@@ -306,13 +306,13 @@ const Sidebar = () => {
         </div>
 
         {paymentDropdown && (
-          <div className="flex flex-col space-y-2 ml-4">
+          <div className="flex flex-col space-y-2">
             <NavLink
               to="/payment"
               className={({ isActive }) =>
                 isActive
-                  ? "text-blue-600"
-                  : "hover:text-blue-600 transition-colors"
+                  ? "text-white bg-blue-600 p-2 rounded"
+                  : "hover:text-blue-600 transition-colors p-2"
               }
             >
               All Payment

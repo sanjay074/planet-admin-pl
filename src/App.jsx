@@ -18,7 +18,12 @@ import NewOrder from './pages/order/NewOrder';
 import { OrderHistory } from './pages/order/OrederHistory';
 import TrackOrder from './pages/order/TrackOrder';
 import OrderDetails from './pages/order/OrderDetails';
-import { ViewOrderList } from './Services/Allapi';
+import { ViewOrderList } from './services/Allapi';
+import Brand from './pages/Brand/Brand';
+import BrandList from './pages/Brand/BrandList';
+import AddCategory from './pages/Product/Category/AddCategory';
+import AddSubCategory from './pages/Product/Category/AddSubCategory';
+import CategoryList from './pages/Product/Category/CategoryList';
 
 
 
@@ -28,7 +33,7 @@ const Layout = () => {
       <div className="w-64">
         <Sidebar />
       </div>
-      <div className="flex flex-col w-full h-full overflow-x-auto">  
+      <div className="flex flex-col w-full h-full overflow-x-auto">
         <Header />
         <div className="flex-1 overflow-y-auto p-4">
           <Outlet />
@@ -38,7 +43,6 @@ const Layout = () => {
 
   );
 };
-
 const App = () => {
   return (
     <Router>
@@ -59,11 +63,15 @@ const App = () => {
           <Route path='/OrderHistory' element={<OrderHistory />} />
           <Route path='/TrackOrder' element={<TrackOrder />} />
           <Route path='/OrderDetails/:id' element={<OrderDetails />} />
-          <Route path='/ViewOrderList/:id' element={<ViewOrderList />} />
+          <Route path='/Brand' element={<Brand />} />
+          <Route path='/BrandList' element={<BrandList />} />
+          <Route path='/AddCategory' element={<AddCategory />} />
+          <Route path='/AddSubCategory' element={<AddSubCategory />} />
+          <Route path='/CategoryList' element={<CategoryList />} />
         </Route>
       </Routes>
     </Router>
   );
 };
 
-export default App;
+export default App;

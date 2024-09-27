@@ -1,10 +1,5 @@
 import { useEffect, useState } from "react";
-import {
-  GetBrand,
-  GetCategoryData,
-  GetSubCategory,
-  PostProductData,
-} from "../../Services/Allapi";
+import { GetBrand, GetCategoryData, GetSubCategory, PostProductData } from "../../Services/Allapi";
 import { useNavigate } from "react-router-dom";
 
 const AddProduct = () => {
@@ -115,8 +110,8 @@ const AddProduct = () => {
       productData.append("basePrice", basePrice);
       productData.append("finalPrice", finalPrice);
       images.forEach((img) => productData.append("images", img));
-       console.log(productData,"product added");
-       
+      console.log(productData, "product added");
+
       await PostProductData(productData);
       alert("Product added successfully!");
       resetForm();
@@ -144,7 +139,7 @@ const AddProduct = () => {
   };
 
   return (
-    <div className="w-full mx-auto mt-12 p-6 bg-white shadow-md">
+    <div className="w-full mx-auto mt-20 px-6 py-2 bg-white shadow-lg border-2 border-gray-200 rounded-xl ">
       <div className="flex justify-center rounded-xl pt-2 pb-0 bg-indigo-100 mb-2">
         <h2 className="text-2xl  font-semibold mb-4">Add Product</h2>
       </div>
@@ -247,7 +242,7 @@ const AddProduct = () => {
 
           <div className="w-full">
             <label className=" font-semibold block mb-2">
-              Size 
+              Size
             </label>
             <input
               type="text"

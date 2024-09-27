@@ -90,7 +90,7 @@ export const OrderHistory = () => {
     };
 
     const handalViewHistory = (id) => {
-        navigate(`/ViewOrderList/${id}`);
+        navigate(`/OrderDetails/${id}`);
     };
 
     const handalDeleteHistory = async (id) => {
