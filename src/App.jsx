@@ -5,6 +5,8 @@ import Header from './components/Header';
 import Dashboard from './components/dashboard/Dashboard';
 import { Outlet } from 'react-router-dom';
 import Login from './pages/Login';
+import Brand from './Brand/Brand';
+import BrandList from './Brand/BrandList';
 
 const Layout = () => {
   return (
@@ -29,6 +31,8 @@ const App = () => {
         <Route path="/" element={<Login />} />
         <Route element={<Layout />}>
           <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/Brand" element={<Brand/>} />
+          <Route path="/BrandList" element={<BrandList/>} />
         </Route>
       </Routes>
     </Router>
