@@ -7,10 +7,9 @@ import { DeleteOrderList, RecentOrdersDetails } from "../../services/Allapi";
 
 const RecentOrders = () => {
     const navigate = useNavigate();
-
     const [currentPage, setCurrentPage] = useState(1);
     const [recentOrder, setRecentOrder] = useState([]);
-    const [searchTerm, setSearchTerm] = useState(""); // New state for search input
+    const [searchTerm, setSearchTerm] = useState("");
     const itemsPerPage = 5;
 
     useEffect(() => {
@@ -28,7 +27,6 @@ const RecentOrders = () => {
 
     const totalPages = Math.ceil(recentOrder.length / itemsPerPage);
 
-    // Filter orders based on the search input
     const filteredOrders = recentOrder.filter((order) =>
         order._id.toLowerCase().includes(searchTerm.toLowerCase())
     );
@@ -149,24 +147,32 @@ const RecentOrders = () => {
     };
 
     const handleSearchChange = (e) => {
-        setSearchTerm(e.target.value); // Update the search term
+        setSearchTerm(e.target.value);
     };
 
     return (
-        <div className="container">
-            <div className="actions">
-                <button onClick={downloadCSS}>Css</button>
-                <button onClick={downloadAsTxt}>Txt</button>
-                <button onClick={downloadAsExcel}>Excel</button>
-                <button onClick={printPage}>Print</button>
+        <div className="max-w-full mx-auto mt-6 bg-gray-100 p-4 text-black">
+            <div className="flex justify-between items-center mb-5">
+                <button className="bg-purple-600 text-white py-2 px-4" onClick={downloadCSS}>
+                    CSS
+                </button>
+                <button className="bg-purple-600 text-white py-2 px-4" onClick={downloadAsTxt}>
+                    Txt
+                </button>
+                <button className="bg-purple-600 text-white py-2 px-4" onClick={downloadAsExcel}>
+                    Excel
+                </button>
+                <button className="bg-purple-600 text-white py-2 px-4" onClick={printPage}>
+                    Print
+                </button>
                 <input
                     type="text"
                     placeholder="Search by Order ID"
-                    className="search"
+                    className="flex-grow p-2 border rounded-lg"
                     value={searchTerm}
-                    onChange={handleSearchChange} // Handle search input change
+                    onChange={handleSearchChange}
                 />
-                <button className="add-new" onClick={handleAddNew}>
+                <button className="bg-purple-600 text-white py-2 px-4" onClick={handleAddNew}>
                     + Add New Product
                 </button>
             </div>
@@ -175,17 +181,17 @@ const RecentOrders = () => {
                 <p>No available data</p>
             ) : (
                 <>
-                    <table>
-                        <thead>
+                    <table className="w-full border-collapse">
+                        <thead className="bg-gray-200">
                             <tr>
-                                <th>Name</th>
-                                <th>Order ID</th>
-                                <th>Date</th>
-                                <th>Total</th>
-                                <th>Payment Status</th>
-                                <th>Payment Method</th>
-                                <th>View Details</th>
-                                <th>Action</th>
+                                <th className="p-3 border">Name</th>
+                                <th className="p-3 border">Order ID</th>
+                                <th className="p-3 border">Date</th>
+                                <th className="p-3 border">Total</th>
+                                <th className="p-3 border">Payment Status</th>
+                                <th className="p-3 border">Payment Method</th>
+                                <th className="p-3 border">View Details</th>
+                                <th className="p-3 border">Action</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -199,50 +205,39 @@ const RecentOrders = () => {
                                     ) || {};
 
                                 return (
-                                    <tr
-                                        key={order._id}
-                                        className={order._id % 2 === 0 ? "evenRow" : "oddRow"}
-                                    >
-                                        <td>
+                                    <tr key={order._id} className="odd:bg-white even:bg-gray-100">
+                                        <td className="p-3">
                                             {firstProductWithImage.productId ? (
-                                                <div className="product-details">
+                                                <div className="flex items-center">
                                                     <img
                                                         src={firstProductWithImage.productId.images[0]}
                                                         alt={firstProductWithImage.productId.name}
+                                                        className="w-12 h-12 mr-2"
                                                     />
-                                                    <div className="product-name">
-                                                        {firstProductWithImage.productId.name}
-                                                    </div>
+                                                    <span>{firstProductWithImage.productId.name}</span>
                                                 </div>
                                             ) : (
                                                 "No image available"
                                             )}
                                         </td>
-
-                                        <td>{order._id}</td>
-                                        <td>{new Date(order.orderDate).toLocaleDateString()}</td>
-                                        <td>Rs {order.totalPrice}</td>
-                                        <td
-                                            className={
-                                                order.paymentStatus
-                                                    ? "payment-success"
-                                                    : "payment-pending"
-                                            }
-                                        >
+                                        <td className="p-3">{order._id}</td>
+                                        <td className="p-3">{new Date(order.orderDate).toLocaleDateString()}</td>
+                                        <td className="p-3">Rs {order.totalPrice}</td>
+                                        <td className={`p-3 ${order.paymentStatus ? "text-green-500" : "text-red-500"}`}>
                                             {order.paymentStatus ? "Success" : "Pending"}
                                         </td>
-                                        <td>{order.paymentMethod}</td>
+                                        <td className="p-3">{order.paymentMethod}</td>
                                         <td
+                                            className="p-3 cursor-pointer text-2xl"
                                             onClick={() => handleViewDetails(order._id)}
-                                            style={{
-                                                cursor: "pointer",
-                                                fontSize: "24px",
-                                            }}
                                         >
-                                            <MdOutlineRemoveRedEye style={{ fontSize: "24px" }} />{" "}
+                                            <MdOutlineRemoveRedEye />
                                         </td>
-                                        <td>
-                                            <button onClick={() => handalDeleteitem(order._id)} style={{ backgroundColor: "white" }}>
+                                        <td className="p-3">
+                                            <button
+                                                className="bg-red-500 text-white p-2 rounded"
+                                                onClick={() => handalDeleteitem(order._id)}
+                                            >
                                                 ❌
                                             </button>
                                         </td>
@@ -252,18 +247,22 @@ const RecentOrders = () => {
                         </tbody>
                     </table>
 
-                    <div className="pagination">
+                    <div className="flex justify-center mt-5">
                         {Array.from({ length: totalPages }, (_, index) => (
                             <button
                                 key={index + 1}
                                 onClick={() => handlePageChange(index + 1)}
-                                className={currentPage === index + 1 ? "active" : ""}
+                                className={`px-4 py-2 border ${currentPage === index + 1 ? "bg-purple-600 text-white" : "bg-white"
+                                    }`}
                             >
                                 {index + 1}
                             </button>
                         ))}
                         {currentPage < totalPages && (
-                            <button onClick={() => handlePageChange(currentPage + 1)}>
+                            <button
+                                className="px-4 py-2 border bg-white"
+                                onClick={() => handlePageChange(currentPage + 1)}
+                            >
                                 Next
                             </button>
                         )}
