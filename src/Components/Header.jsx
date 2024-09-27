@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { MdEmail } from "react-icons/md";
 import { IoIosNotifications } from "react-icons/io";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import Planet from "../assets/Planet.svg";
 import { getAllEmail } from "../services/Allapi";
 
@@ -32,10 +32,10 @@ const Header = () => {
     };
 
     return (
-        <header className="fixed top-0 left-0 w-full z-50 shadow-lg flex justify-between items-center p-4 bg-blue-600">
-            <div className="flex items-center">
+        <header className="fixed top-0 left-0 w-full z-50 shadow-lg flex justify-between items-center p-4 bg-blue-500">
+            <Link to="/dashboard" className="flex items-center">
                 <img src={Planet} alt="Logo" className="w-40 h-auto" />
-            </div>
+            </Link>
             <div className="flex items-center space-x-6 ">
                 {/* Email Icon with Badge */}
                 <div className="relative">

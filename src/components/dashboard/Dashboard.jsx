@@ -7,16 +7,12 @@ import { GetAllUserList, ProductHistory } from "../../services/Allapi";
 const Dashboard = () => {
     const [totalUser, setTotalUser] = useState("");
     const [totalOrder, setTotalOrder] = useState("");
-    // console.log(totalOrder, "total Order list ");
-    console.log(totalOrder, "total historyf ");
+    console.log(totalOrder, "total historyf");
+
     useEffect(() => {
         const getTotalUser = async () => {
             try {
                 const result = await GetAllUserList();
-                // console.log(result,"result data from apuiiiiiiiii");
-
-                // console.log(result.data.totalUser, "total user List ");
-
                 setTotalUser(result.data.totalUser);
             } catch (error) {
                 console.error("facing problem in getting totalUser from api", error);
@@ -26,60 +22,86 @@ const Dashboard = () => {
     }, []);
 
     useEffect(() => {
-        const getTotalorder = async () => {
+        const getTotalOrder = async () => {
             try {
                 const result = await ProductHistory();
-                console.log(result, "total result history ");
-
+                console.log(result, "total result history");
                 setTotalOrder(result.data.total);
             } catch (error) {
                 console.error(
-                    "facing problem in getting data from totalhistory ",
+                    "facing problem in getting data from totalhistory",
                     error
                 );
             }
         };
-        getTotalorder();
+        getTotalOrder();
     }, []);
+
+    const currentHour = new Date().getHours();
+
+  const getGreetingMessage = () => {
+    if (currentHour < 12) {
+      return 'Good Morning';
+    } else if (currentHour < 18) {
+      return 'Good Afternoon';
+    } else {
+      return 'Good Evening';
+    }
+  };
+
     return (
         <>
-            <div className="dashboard mt-16">
-                <h3 className="h4">Good Morning </h3>
-                <p className="p1">here the today update </p>
-                <div className="stats">
-                    <div className="stat">
-                        <div className="stat-header">
+            <div className="flex-1 p-2 text-black mt-16 w-full">
+                <h3 className="text-2xl font-bold">{getGreetingMessage()}</h3>
+                <p className="text-xl text-red-300 font-semibold">Here the today update</p>
+                <div className="flex justify-between gap-5 flex-wrap mt-5">
+                    <div className=" p-5 rounded-lg shadow-md flex-1 text-center bg-green-100 ">
+                        <div className="text-sm text-gray-600 mb-2 flex justify-between items-center font-semibold ">
                             Total Page Views
-                            <span className="stat-trend up">59.3%</span>
+                            <span className="text-xs py-1 px-2 rounded-xl  text-teal-700 bg-red-100 font-bold">
+                                59.3%
+                            </span>
                         </div>
-                        <div className="stat-value">4,42,236</div>
-                        <div className="stat-footer">
+                        <div className="text-2xl font-bold text-gray-800">4,42,236</div>
+                        <div className="text-xs text-gray-500">
                             You made an extra 35,000 this year
                         </div>
                     </div>
-                    <div className="stat">
-                        <div className="stat-header">
+                    <div className=" p-5 rounded-lg shadow-md flex-1 text-center bg-pink-100">
+                        <div className="text-sm text-gray-600 mb-2 flex justify-between items-center font-semibold">
                             Total Users
-                            <span className="stat-trend up">70.5%</span>
+                            <span className="text-xs py-1 px-2 rounded-xl bg-cyan-100 text-teal-700 font-bold">
+                                70.5%
+                            </span>
                         </div>
-                        <div className="stat-value">{totalUser}</div>
-                        <div className="stat-footer">You made an extra 8,900 this year</div>
+                        <div className="text-2xl font-bold text-gray-800">{totalUser}</div>
+                        <div className="text-xs text-gray-500">
+                            You made an extra 8,900 this year
+                        </div>
                     </div>
-                    <div className="stat">
-                        <div className="stat-header">
+
+                    <div className="p-5 rounded-lg shadow-md flex-1 text-center bg-yellow-100">
+                        <div className="text-sm text-gray-600 mb-2 flex justify-between items-center font-semibold ">
                             Total Order
-                            <span className="stat-trend down">27.4%</span>
+                            <span className="text-xs py-1 px-2 rounded-xl bg-blue-200 text-red-700 font-bold">
+                                27.4%
+                            </span>
                         </div>
-                        <div className="stat-value">{totalOrder}</div>
-                        <div className="stat-footer">You made an extra 1,943 this year</div>
+                        <div className="text-2xl font-bold text-gray-800">{totalOrder}</div>
+                        <div className="text-xs text-gray-500">
+                            You made an extra 1,943 this year
+                        </div>
                     </div>
-                    <div className="stat">
-                        <div className="stat-header">
+
+                    <div className="bg-blue-100 p-5 rounded-lg shadow-md flex-1 text-center">
+                        <div className="text-sm text-gray-600 mb-2 flex justify-between items-center font-semibold">
                             Total Sales
-                            <span className="stat-trend down">27.4%</span>
+                            <span className="text-xs py-1 px-2 rounded-xl bg-red-100 text-blue-700 font-bold">
+                                27.4%
+                            </span>
                         </div>
-                        <div className="stat-value">$35,078</div>
-                        <div className="stat-footer">
+                        <div className="text-2xl font-bold text-gray-800">$35,078</div>
+                        <div className="text-xs text-gray-500">
                             You made an extra $20,395 this year
                         </div>
                     </div>
