@@ -49,3 +49,5 @@ export const ViewDetails = () => {
         </div>
     );
 };
+
+export default ViewDetails;

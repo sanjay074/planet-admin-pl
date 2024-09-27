@@ -15,6 +15,8 @@ import { OrderHistory } from './pages/order/OrederHistory';
 import TrackOrder from './pages/order/TrackOrder';
 import OrderDetails from './pages/order/OrderDetails';
 import { ViewOrderList } from './services/Allapi';
+import Brand from './pages/Brand/Brand';
+import BrandList from './pages/Brand/BrandList';
 
 
 const Layout = () => {
@@ -33,7 +35,6 @@ const Layout = () => {
 
   );
 };
-
 const App = () => {
   return (
     <Router>
@@ -50,11 +51,12 @@ const App = () => {
           <Route path='/OrderHistory' element={<OrderHistory />} />
           <Route path='/TrackOrder' element={<TrackOrder />} />
           <Route path='/OrderDetails/:id' element={<OrderDetails />} />
-          <Route path='/ViewOrderList/:id' element={<ViewOrderList />} />
+          <Route path='/Brand' element={<Brand />} />
+          <Route path='/BrandList' element={<BrandList />} />
         </Route>
       </Routes>
     </Router>
   );
 };
 
-export default App;
+export default App;

@@ -153,9 +153,6 @@ const RecentOrders = () => {
     return (
         <div className="max-w-full mx-auto mt-6 bg-gray-100 p-4 text-black">
             <div className="flex justify-between items-center mb-5">
-                <button className="bg-purple-600 text-white py-2 px-4" onClick={downloadCSS}>
-                    CSS
-                </button>
                 <button className="bg-purple-600 text-white py-2 px-4" onClick={downloadAsTxt}>
                     Txt
                 </button>

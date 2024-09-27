@@ -39,15 +39,15 @@ const Dashboard = () => {
 
     const currentHour = new Date().getHours();
 
-  const getGreetingMessage = () => {
-    if (currentHour < 12) {
-      return 'Good Morning';
-    } else if (currentHour < 18) {
-      return 'Good Afternoon';
-    } else {
-      return 'Good Evening';
-    }
-  };
+    const getGreetingMessage = () => {
+        if (currentHour < 12) {
+            return 'Good Morning';
+        } else if (currentHour < 18) {
+            return 'Good Afternoon';
+        } else {
+            return 'Good Evening';
+        }
+    };
 
     return (
         <>
@@ -62,7 +62,7 @@ const Dashboard = () => {
                                 59.3%
                             </span>
                         </div>
-                        <div className="text-2xl font-bold text-gray-800">4,42,236</div>
+                        <div className="text-2xl font-bold text-gray-800">42,236</div>
                         <div className="text-xs text-gray-500">
                             You made an extra 35,000 this year
                         </div>
@@ -100,9 +100,9 @@ const Dashboard = () => {
                                 27.4%
                             </span>
                         </div>
-                        <div className="text-2xl font-bold text-gray-800">$35,078</div>
+                        <div className="text-2xl font-bold text-gray-800">₹35,078</div>
                         <div className="text-xs text-gray-500">
-                            You made an extra $20,395 this year
+                            You made an extra ₹20,395 this year
                         </div>
                     </div>
                 </div>
