@@ -1,15 +1,6 @@
 import React, { useState } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
-import {
 
-  FaBoxOpen,
-  FaTruck,
-  FaTags,
-  FaUsers,
-
-  FaSignOutAlt, // Added for Logout icon
-} from "react-icons/fa";
-import { FaCreditCard } from "react-icons/fa6";
 import HomeIcon from "../Icons/HomeIcon";
 import DownArrowIcon from "../Icons/DownArrowIcon";
 import RightArrowIcon from "../Icons/RightArrowIcon";
@@ -79,7 +70,7 @@ const Sidebar = () => {
         >
           {/* <FaHome className="text-lg" /> */}
           <HomeIcon />
-          <span>Dashboard</span>
+          <span className="w-24">Dashboard</span>
         </NavLink>
 
         <div
@@ -88,7 +79,7 @@ const Sidebar = () => {
         >
           <BoxIcon />
 
-          <span>Products</span>
+          <span className="w-24">Products</span>
           {productsDropdown ? (
             <DownArrowIcon className="ml-auto" />
           ) : (
@@ -123,7 +114,7 @@ const Sidebar = () => {
               className="flex items-center space-x-2 cursor-pointer hover:text-blue-600"
               onClick={toggleCategoryDropdown}
             >
-              <span>Category</span>
+              <span className="w-28">Category</span>
               {categoryDropdown ? <DownArrowIcon /> : <RightArrowIcon />}
             </div>
 
@@ -170,7 +161,7 @@ const Sidebar = () => {
         >
           <DelhiverycarIcon />
 
-          <span>Order</span>
+          <span className="w-24">Order</span>
           {orderDropdown ? <DownArrowIcon className="ml-auto" /> : <RightArrowIcon className="ml-auto" />}
         </div>
 
@@ -215,7 +206,7 @@ const Sidebar = () => {
         >
           <TagIcon />
           {/* <FaTags className="text-lg" /> */}
-          <span>Hot Offer</span>
+          <span className="w-24">Hot Offer</span>
           {hotOfferDropdown ? <DownArrowIcon className="ml-auto" /> : <RightArrowIcon className="ml-auto" />}
         </div>
 
@@ -250,7 +241,7 @@ const Sidebar = () => {
         >
           {/* <FaUsers className="text-lg" /> */}
           <BrandsIcon />
-          <span>Brands</span>
+          <span className="w-24">Brands</span>
           {brandsDropdown ? <DownArrowIcon className="ml-auto" /> : <RightArrowIcon className="ml-auto" />}
         </div>
 
@@ -285,7 +276,7 @@ const Sidebar = () => {
         >
           {/* <FaUsers className="text-lg" /> */}
           <UsersIcon />
-          <span>Customer</span>
+          <span className="w-24">Customer</span>
           {customerDropdown ? <DownArrowIcon className="ml-auto" /> : <RightArrowIcon className="ml-auto" />}
         </div>
 
@@ -305,12 +296,12 @@ const Sidebar = () => {
         )}
 
         <div
-          className="flex items-center space-x-2 p-2 rounded-md cursor-pointer hover:bg-gray-100"
+          className="flex items-center space-x-2 p-2 rounded-md cursor-pointer hover:bg-gray-100 "
           onClick={togglePaymentDropdown}
         >
           {/* <FaCreditCard className="text-lg" /> */}
           <DebitCardIcon />
-          <span>Payment</span>
+          <span className="w-24">Payment</span>
           {paymentDropdown ? <DownArrowIcon className="ml-auto" /> : <RightArrowIcon className="ml-auto" />}
         </div>
 

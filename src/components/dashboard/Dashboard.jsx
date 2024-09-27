@@ -37,10 +37,22 @@ const Dashboard = () => {
         getTotalOrder();
     }, []);
 
+    const currentHour = new Date().getHours();
+
+  const getGreetingMessage = () => {
+    if (currentHour < 12) {
+      return 'Good Morning';
+    } else if (currentHour < 18) {
+      return 'Good Afternoon';
+    } else {
+      return 'Good Evening';
+    }
+  };
+
     return (
         <>
             <div className="flex-1 p-2 text-black mt-16 w-full">
-                <h3 className="text-2xl font-bold">Good Morning</h3>
+                <h3 className="text-2xl font-bold">{getGreetingMessage()}</h3>
                 <p className="text-xl text-red-300 font-semibold">Here the today update</p>
                 <div className="flex justify-between gap-5 flex-wrap mt-5">
                     <div className=" p-5 rounded-lg shadow-md flex-1 text-center bg-green-100 ">
