@@ -18,7 +18,8 @@ import NewOrder from './pages/order/NewOrder';
 import { OrderHistory } from './pages/order/OrederHistory';
 import TrackOrder from './pages/order/TrackOrder';
 import OrderDetails from './pages/order/OrderDetails';
-import { ViewOrderList } from './services/Allapi';
+import { ViewOrderList } from './Services/Allapi';
+
 
 
 const Layout = () => {
