@@ -1,15 +1,6 @@
 import React, { useState } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
-import {
 
-  FaBoxOpen,
-  FaTruck,
-  FaTags,
-  FaUsers,
-
-  FaSignOutAlt, // Added for Logout icon
-} from "react-icons/fa";
-import { FaCreditCard } from "react-icons/fa6";
 import HomeIcon from "../Icons/HomeIcon";
 import DownArrowIcon from "../Icons/DownArrowIcon";
 import RightArrowIcon from "../Icons/RightArrowIcon";
@@ -123,7 +114,7 @@ const Sidebar = () => {
               className="flex items-center space-x-2 cursor-pointer hover:text-blue-600"
               onClick={toggleCategoryDropdown}
             >
-              <span className="w-24">Category</span>
+              <span className="w-28">Category</span>
               {categoryDropdown ? <DownArrowIcon /> : <RightArrowIcon />}
             </div>
 

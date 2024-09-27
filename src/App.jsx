@@ -1,6 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes, Outlet } from 'react-router-dom';
-import Sidebar from './Components/Layout/Sidebar';
+import Sidebar from './Components/Layouts/Sidebar';
 import Header from './components/Header';
 import Dashboard from './components/dashboard/Dashboard';
 import { } from 'react-router-dom';
