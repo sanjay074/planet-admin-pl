@@ -3,6 +3,10 @@ import { BrowserRouter as Router, Route, Routes, Outlet } from 'react-router-dom
 import Sidebar from './Components/Layouts/Sidebar';
 import Header from './components/Header';
 import Dashboard from './components/dashboard/Dashboard';
+import AddProduct from './pages/Product/AddProduct';
+import ProductList from './pages/Product/ProductList';
+import ProductDetails from './pages/Product/ProductDetails';
+import EditProductPopup from './pages/Product/EditProductPopup';
 import { } from 'react-router-dom';
 import Login from './pages/Login';
 import { ViewDetails } from './pages/ViewDetails';
@@ -17,6 +21,8 @@ import OrderDetails from './pages/order/OrderDetails';
 import { ViewOrderList } from './services/Allapi';
 import Brand from './pages/Brand/Brand';
 import BrandList from './pages/Brand/BrandList';
+import { ViewOrderList } from './Services/Allapi';
+
 
 
 const Layout = () => {
@@ -25,7 +31,7 @@ const Layout = () => {
       <div className="w-64">
         <Sidebar />
       </div>
-      <div className="flex flex-col w-full h-full overflow-x-auto">  {/* Added overflow-x-auto here */}
+      <div className="flex flex-col w-full h-full overflow-x-auto">
         <Header />
         <div className="flex-1 overflow-y-auto p-4">
           <Outlet />
@@ -42,6 +48,10 @@ const App = () => {
         <Route path="/" element={<Login />} />
         <Route element={<Layout />}>
           <Route path="/dashboard" element={<Dashboard />} />
+          <Route path='/AddProduct' element={<AddProduct />} />
+          <Route path='/ProductList' element={<ProductList />} />
+          <Route path='/ProductDetails/:id' element={<ProductDetails />} />
+          <Route path='/EditProductPopup/:id' element={<EditProductPopup />} />
           <Route path='/ViewDetails' element={<ViewDetails />} />
           <Route path='/payment' element={<AllPayment />} />
           <Route path='/user' element={<User />} />
