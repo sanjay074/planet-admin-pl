@@ -155,7 +155,7 @@ export const OrderHistory = () => {
                                             <div key={item?._id}>{item?.productId?.name || "N/A"}</div>
                                         ))}
                                     </td>
-                                    <td className="px-6 py-4 border-b">{order?._id || "N/A"}</td>
+                                    <td className="px-6 py-4 border-b">{order?.orderId || "N/A"}</td>
                                     <td className="px-6 py-4 border-b">
                                         {order?.orderItems.map((item, index) => (
                                             <div key={index} className="flex items-center space-x-2">

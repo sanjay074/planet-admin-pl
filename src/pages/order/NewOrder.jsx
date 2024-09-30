@@ -124,7 +124,7 @@ export const NewOrder = () => {
                         {currentItems.map((order) => (
                             <tr key={order._id} className="border-b">
                                 <td className="px-4 py-2">{order.orderItems?.[0]?.productId?.name || "N/A"}</td>
-                                <td className="px-4 py-2">{order._id || "N/A"}</td>
+                                <td className="px-4 py-2">{order.orderId || "N/A"}</td>
                                 <td className="px-4 py-2">
                                     {order.orderItems?.[0]?.productId?.images?.[0] ? (
                                         <img

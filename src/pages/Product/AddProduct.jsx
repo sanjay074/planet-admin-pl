@@ -117,7 +117,7 @@ const AddProduct = () => {
       resetForm();
       navigate("/ProductList");
     } catch (error) {
-      alert("Something went wrong. Please try again.");
+      alert(error.response.data.message);
     }
   };
 

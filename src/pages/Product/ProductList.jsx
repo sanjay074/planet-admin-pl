@@ -44,15 +44,13 @@ const ProductList = () => {
   const downloadAsTxt = () => {
     const content = Array.isArray(productList)
       ? productList
-          .map(
-            (product) =>
-              `Product: ${product.name}, Product ID: ${
-                product._id
-              }, Base Price: Rs ${product.basePrice}, Final Price: Rs ${
-                product.finalPrice
-              }, Stock: ${product.stock ? "In Stock" : "Out Of Stock"}`
-          )
-          .join("\n")
+        .map(
+          (product) =>
+            `Product: ${product.name}, Product ID: ${product._id
+            }, Base Price: Rs ${product.basePrice}, Final Price: Rs ${product.finalPrice
+            }, Stock: ${product.stock ? "In Stock" : "Out Of Stock"}`
+        )
+        .join("\n")
       : "";
     const blob = new Blob([content], { type: "text/plain;charset=utf-8" });
     saveAs(blob, "products.txt");
@@ -64,27 +62,6 @@ const ProductList = () => {
     XLSX.utils.book_append_sheet(workbook, worksheet, "Products");
     XLSX.writeFile(workbook, "products.xlsx");
   };
-
-  //   const downloadCSS = () => {
-  //     const content = `
-  //       .container1 { width: 80%; margin: 0 auto; }
-  //       .actions { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; }
-  //       .actions button, .actions input { margin: 0 5px; padding: 10px; border: none; cursor: pointer; }
-  //       .search { flex-grow: 1; padding: 10px; border-radius: 5px; }
-  //       .delete { background-color: red; color: white; }
-  //       .add-new { background-color: purple; color: white; }
-  //       table { width: 100%; border-collapse: collapse; }
-  //       thead { background-color: #f4f4f4; }
-  //       th, td { padding: 10px; text-align: left; border: 1px solid #ddd; }
-  //       img { width: 50px; height: 50px; margin-right: 10px; vertical-align: middle; }
-  //       .pagination { display: flex; justify-content: center; margin-top: 20px; }
-  //       .pagination button { margin: 0 5px; padding: 10px; border: none; cursor: pointer; }
-  //       .pagination .active { background-color: purple; color: white; }
-  //     `;
-  //     const blob = new Blob([content], { type: 'text/css;charset=utf-8' });
-  //     saveAs(blob, 'styles.css');
-  //   };
-
   const printPage = () => {
     window.print();
   };
@@ -180,8 +157,8 @@ const ProductList = () => {
                   <img
                     src={
                       product.images &&
-                      Array.isArray(product.images) &&
-                      product.images.length > 0
+                        Array.isArray(product.images) &&
+                        product.images.length > 0
                         ? product.images[0]
                         : "default-image.jpg"
                     }
@@ -226,9 +203,8 @@ const ProductList = () => {
           <button
             key={i}
             onClick={() => handlePageChange(i + 1)}
-            className={`mx-1 px-4 py-2 border ${
-              currentPage === i + 1 ? "bg-purple-500 text-white" : "bg-gray-200"
-            }`}
+            className={`mx-1 px-4 py-2 border ${currentPage === i + 1 ? "bg-purple-500 text-white" : "bg-gray-200"
+              }`}
           >
             {i + 1}
           </button>
