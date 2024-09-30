@@ -23,20 +23,20 @@ export const ViewEmail = () => {
     };
 
     return (
-        <div className="container mx-auto p-6 mt-12 bg-white">
-            <h2 className="text-2xl font-bold mb-6">Email Details</h2>
+        <div className="container mx-auto p-6 mt-16 bg-gray-50">
+            <h2 className="text-3xl font-bold mb-8 text-gray-800 text-center">Email Details</h2>
             {allData.length === 0 ? (
-                <div>No emails found.</div>
+                <div className="text-center text-gray-500">No emails found.</div>
             ) : (
-                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 ">
                     {allData.map((item) => (
-                        <div key={item._id} className="border border-gray-300 rounded-md p-4 bg-white shadow">
-                            <div className="text-sm space-y-2">
-                                <p><strong>Name:</strong> {item.name}</p>
-                                <p><strong>Email:</strong> {item.email}</p>
-                                <p><strong>Mobile:</strong> {item.mobile}</p>
-                                <p><strong>Message:</strong> {item.message}</p>
-                                <p><strong>Created At:</strong> {new Date(item.createdAt).toLocaleString()}</p>
+                        <div key={item._id} className=" bg-yellow-50 border border-gray-200 rounded-2xl p-6  shadow-xl hover:shadow-xl transition-shadow duration-300">
+                            <div className="text-sm space-y-3 text-gray-700">
+                                <p><span className="font-semibold">Name:</span> {item.name}</p>
+                                <p><span className="font-semibold">Email:</span> {item.email}</p>
+                                <p><span className="font-semibold">Mobile:</span> {item.mobile}</p>
+                                <p className="break-words"><span className="font-semibold">Message:</span> {item.message}</p>
+                                <p><span className="font-semibold">Created At:</span> {new Date(item.createdAt).toLocaleString()}</p>
                             </div>
                         </div>
                     ))}
@@ -44,10 +44,12 @@ export const ViewEmail = () => {
             )}
             <button
                 onClick={handleBack}
-                className="mt-4 px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 transition"
+                className="mt-8 px-6 py-3 bg-blue-600 text-white font-medium rounded-lg hover:bg-blue-700 transition-transform transform hover:scale-105"
             >
                 Go Back
             </button>
         </div>
+
+
     );
 };
