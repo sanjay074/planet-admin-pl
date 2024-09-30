@@ -1,6 +1,4 @@
 import { useEffect, useState } from "react";
-import * as XLSX from "xlsx";
-import { saveAs } from "file-saver";
 import { GetAllPayment } from "../services/Allapi";
 
 export const AllPayment = () => {
@@ -14,7 +12,6 @@ export const AllPayment = () => {
             try {
                 const result = await GetAllPayment();
                 const data = Array.isArray(result.data.vendorPayOuts) ? result.data.vendorPayOuts : [];
-                console.log("Fetched payments:", data);
                 setPaymentList(data);
             } catch (error) {
                 console.error("Error fetching payment data", error);

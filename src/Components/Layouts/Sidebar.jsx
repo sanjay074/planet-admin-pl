@@ -54,7 +54,10 @@ const Sidebar = () => {
   const handleLogout = () => {
     localStorage.removeItem("token");
     sessionStorage.removeItem("token");
-    navigate("/");
+    const confirLogout = confirm("Do you want to logout")
+    if (confirLogout) {
+      navigate("/");
+    }
   };
 
   return (

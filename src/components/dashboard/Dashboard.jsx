@@ -7,8 +7,6 @@ import { GetAllUserList, ProductHistory } from "../../services/Allapi";
 const Dashboard = () => {
     const [totalUser, setTotalUser] = useState("");
     const [totalOrder, setTotalOrder] = useState("");
-    console.log(totalOrder, "total historyf");
-
     useEffect(() => {
         const getTotalUser = async () => {
             try {
@@ -25,7 +23,6 @@ const Dashboard = () => {
         const getTotalOrder = async () => {
             try {
                 const result = await ProductHistory();
-                console.log(result, "total result history");
                 setTotalOrder(result.data.total);
             } catch (error) {
                 console.error(

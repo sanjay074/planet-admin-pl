@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { GetBrand, GetCategoryData, GetSubCategory, PostProductData } from "../../Services/Allapi";
+import { GetBrand, GetCategoryData, GetSubCategory, PostProductData } from "../../services/Allapi";
 import { useNavigate } from "react-router-dom";
 
 const AddProduct = () => {

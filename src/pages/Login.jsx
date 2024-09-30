@@ -15,10 +15,10 @@ export default function Login() {
 
         const result = await axios.post(BaseUrl + "/admin/signin", item);
         if (!result.data.token) {
-            console.log("login failed");
+            alert("login failed");
         } else {
             localStorage.setItem("token", result.data.token);
-            alert("login")
+            alert("login Successfully")
             navigate('/dashboard');
 
         }
