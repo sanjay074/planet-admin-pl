@@ -3,7 +3,7 @@ import * as XLSX from "xlsx";
 import { saveAs } from "file-saver";
 import { useNavigate } from "react-router-dom";
 import EditProductPopup from "./EditProductPopup";
-import { DeleteProductDetails, getAllProductApi } from "../../Services/Allapi";
+import { DeleteProductDetails, getAllProductApi } from "../../services/Allapi";
 
 const ProductList = () => {
   const [productList, setProductList] = useState([]);
