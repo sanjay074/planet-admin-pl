@@ -23,6 +23,7 @@ import AddCategory from './pages/Product/Category/AddCategory';
 import AddSubCategory from './pages/Product/Category/AddSubCategory';
 import CategoryList from './pages/Product/Category/CategoryList';
 import { ViewEmail } from './pages/ViewEmail';
+import ViewRecentOrder from './pages/order/ViewRecentOrders';
 
 
 
@@ -68,6 +69,7 @@ const App = () => {
           <Route path='/AddSubCategory' element={<AddSubCategory />} />
           <Route path='/CategoryList' element={<CategoryList />} />
           <Route path='/ViewEmail' element={<ViewEmail />} />
+          <Route path='/ViewRecentOrder/:id' element={<ViewRecentOrder />} />
         </Route>
       </Routes>
     </Router>

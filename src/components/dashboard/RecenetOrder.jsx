@@ -54,75 +54,6 @@ const RecentOrders = () => {
         XLSX.writeFile(workbook, "orders.xlsx");
     };
 
-    const downloadCSS = () => {
-        const content = `
-      .container {
-        width: 80%;
-        margin: 0 auto;
-      }
-      .actions {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        margin-bottom: 20px;
-      }
-      .actions button, .actions input {
-        margin: 0 5px;
-        padding: 10px;
-        border: none;
-        cursor: pointer;
-      }
-      .search {
-        flex-grow: 1;
-        padding: 10px;
-        border-radius: 5px;
-      }
-      .delete {
-        background-color: red;
-        color: white;
-      }
-      .add-new {
-        background-color: purple;
-        color: white;
-      }
-      table {
-        width: 100%;
-        border-collapse: collapse;
-      }
-      thead {
-        background-color: #f4f4f4;
-      }
-      th, td {
-        padding: 10px;
-        text-align: left;
-        border: 1px solid #ddd;
-      }
-      img {
-        width: 50px;
-        height: 50px;
-        margin-right: 10px;
-        vertical-align: middle;
-      }
-      .pagination {
-        display: flex;
-        justify-content: center;
-        margin-top: 20px;
-      }
-      .pagination button {
-        margin: 0 5px;
-        padding: 10px;
-        border: none;
-        cursor: pointer;
-      }
-      .pagination .active {
-        background-color: purple;
-        color: white;
-      }
-    `;
-        const blob = new Blob([content], { type: "text/css;charset=utf-8" });
-        saveAs(blob, "styles.css");
-    };
-
     const printPage = () => {
         window.print();
     };
@@ -217,7 +148,7 @@ const RecentOrders = () => {
                                                 "No image available"
                                             )}
                                         </td>
-                                        <td className="p-3">{order._id}</td>
+                                        <td className="p-3">{order.orderId}</td>
                                         <td className="p-3">{new Date(order.orderDate).toLocaleDateString()}</td>
                                         <td className="p-3">Rs {order.totalPrice}</td>
                                         <td className={`p-3 ${order.paymentStatus ? "text-green-500" : "text-red-500"}`}>
@@ -232,7 +163,7 @@ const RecentOrders = () => {
                                         </td>
                                         <td className="p-3">
                                             <button
-                                                className="bg-red-500 text-white p-2 rounded"
+                                                className="bg-white text-red-500 p-2 rounded"
                                                 onClick={() => handalDeleteitem(order._id)}
                                             >
                                                 ❌
