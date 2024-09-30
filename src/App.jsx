@@ -24,6 +24,7 @@ import BrandList from './pages/Brand/BrandList';
 import AddCategory from './pages/Product/Category/AddCategory';
 import AddSubCategory from './pages/Product/Category/AddSubCategory';
 import CategoryList from './pages/Product/Category/CategoryList';
+import { ViewEmail } from './pages/ViewEmail';
 
 
 
@@ -68,6 +69,7 @@ const App = () => {
           <Route path='/AddCategory' element={<AddCategory />} />
           <Route path='/AddSubCategory' element={<AddSubCategory />} />
           <Route path='/CategoryList' element={<CategoryList />} />
+          <Route path='/ViewEmail' element={<ViewEmail />} />
         </Route>
       </Routes>
     </Router>

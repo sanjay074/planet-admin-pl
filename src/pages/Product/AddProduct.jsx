@@ -4,12 +4,10 @@ import { useNavigate } from "react-router-dom";
 
 const AddProduct = () => {
   const navigate = useNavigate();
-
   const [categories, setCategories] = useState([]);
   const [allSubCategories, setAllSubCategories] = useState([]);
   const [filteredSubCategories, setFilteredSubCategories] = useState([]);
   const [brands, setBrands] = useState([]);
-
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");
   const [category, setCategory] = useState("");
@@ -17,22 +15,20 @@ const AddProduct = () => {
   const [brand, setBrand] = useState("");
   const [color, setColor] = useState([]);
   const [size, setSize] = useState([]);
+  const [numSize, setPantSize] = useState([]);
+  const [footSize, setFootSize] = useState([]);
   const [quantity, setQuantity] = useState("");
   const [basePrice, setBasePrice] = useState("");
   const [finalPrice, setFinalPrice] = useState("");
   const [images, setImages] = useState([]);
-  const [pantSize, setPantSize] = useState([]);
-  const [footSize, setFootSize] = useState([]);
-
   const [imagePreviews, setImagePreviews] = useState([]);
 
+  // Fetch categories
   useEffect(() => {
     const fetchCategories = async () => {
       try {
         const result = await GetCategoryData();
-        setCategories(
-          Array.isArray(result.data.record) ? result.data.record : []
-        );
+        setCategories(Array.isArray(result.data.record) ? result.data.record : []);
       } catch (error) {
         console.error("Error getting categories:", error);
       }
@@ -40,23 +36,31 @@ const AddProduct = () => {
     fetchCategories();
   }, []);
 
+  // Fetch subcategories
   useEffect(() => {
     const fetchSubCategories = async () => {
       try {
         const result = await GetSubCategory();
-        setAllSubCategories(
-          Array.isArray(result.data.record) ? result.data.record : []
-        );
-        if (category) {
-          filterSubCategories(category, result.data.record);
-        }
+        setAllSubCategories(Array.isArray(result.data.record) ? result.data.record : []);
       } catch (error) {
         console.error("Error getting subcategories:", error);
       }
     };
     fetchSubCategories();
-  }, [category]);
+  }, []);
 
+  // Filter subcategories based on selected category
+  useEffect(() => {
+    if (category) {
+      const filtered = allSubCategories.filter((sub) => sub.category === category);
+      setFilteredSubCategories(filtered);
+    } else {
+      setFilteredSubCategories([]);
+      setSubCategory("");
+    }
+  }, [category, allSubCategories]);
+
+  // Fetch brands
   useEffect(() => {
     const fetchBrands = async () => {
       try {
@@ -69,30 +73,15 @@ const AddProduct = () => {
     fetchBrands();
   }, []);
 
-  useEffect(() => {
-    if (category) {
-      filterSubCategories(category, allSubCategories);
-    } else {
-      setFilteredSubCategories([]);
-      setSubCategory("");
-    }
-  }, [category, allSubCategories]);
-
-  const filterSubCategories = (categoryId, subCategories) => {
-    const filtered = subCategories.filter(
-      (subCategory) => subCategory.category === categoryId
-    );
-    setFilteredSubCategories(filtered);
-  };
-
+  // Handle image upload and previews
   const handleImageUpload = (e) => {
     const files = Array.from(e.target.files);
     setImages(files);
-
     const previews = files.map((file) => URL.createObjectURL(file));
     setImagePreviews(previews);
   };
 
+  // Handle form submission
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
@@ -103,14 +92,25 @@ const AddProduct = () => {
       productData.append("subCategory", subCategory);
       productData.append("brand", brand);
       color.forEach((clr) => productData.append("color[]", clr));
-      size.forEach((sz) => productData.append("size[]", sz));
-      footSize.forEach((fsz) => productData.append("footSize[]", fsz));
-      pantSize.forEach((nsz) => productData.append("pantSize[]", nsz));
+
+      // Append size fields based on selected subcategory
+      if (subCategory) {
+        const selectedSubCategory = allSubCategories.find(sub => sub._id === subCategory);
+        if (selectedSubCategory) {
+          if (["Shirt", "Tshirt", "Dress"].includes(selectedSubCategory.name)) {
+            productData.append("size[]", [size]);
+          } else if (selectedSubCategory.name === "Jeans") {
+            productData.append("numSize[]", [numSize]);
+          } else if (["Loafer-shoes", "Formal shoes", "Sport shoes"].includes(selectedSubCategory.name)) {
+            productData.append("footSize[]", [footSize]);
+          }
+        }
+      }
+
       productData.append("quantity", quantity);
       productData.append("basePrice", basePrice);
       productData.append("finalPrice", finalPrice);
       images.forEach((img) => productData.append("images", img));
-      console.log(productData, "product added");
 
       await PostProductData(productData);
       alert("Product added successfully!");
@@ -128,9 +128,9 @@ const AddProduct = () => {
     setSubCategory("");
     setBrand("");
     setColor([]);
-    setSize([]);
-    setPantSize([]);
-    setFootSize([]);
+    setSize("");
+    setPantSize("");
+    setFootSize("");
     setQuantity("");
     setBasePrice("");
     setFinalPrice("");
@@ -138,184 +138,219 @@ const AddProduct = () => {
     setImagePreviews([]);
   };
 
-  return (
-    <div className="w-full mx-auto mt-20 px-6 py-2 bg-white shadow-lg border-2 border-gray-200 rounded-xl ">
-      <div className="flex justify-center rounded-xl pt-2 pb-0 bg-indigo-100 mb-2">
-        <h2 className="text-2xl  font-semibold mb-4">Add Product</h2>
-      </div>
-      <form onSubmit={handleSubmit}>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
-          <div className="w-full">
-            <label className=" font-semibold block mb-2">Product Name</label>
-            <input
-              type="text"
-              className="w-full max-w-md p-2 border border-gray-300 rounded-md"
-              value={name}
-              onChange={(e) => setName(e.target.value.replace(/[0-9]/g, ""))}
-              required
-            />
-          </div>
-          <div className="w-full">
-            <label className=" font-semibold block mb-2">Description</label>
-            <textarea
-              className="w-full max-w-md p-2 border border-gray-300 rounded-md"
-              value={description}
-              onChange={(e) => setDescription(e.target.value)}
-              rows={2}
-              required
-            />
-          </div>
+  // Dynamically render the appropriate size field
+  const renderSizeFields = () => {
+    if (filteredSubCategories.length === 0) return null;
 
+    const selectedSubCategory = filteredSubCategories.find(sub => sub._id === subCategory);
+
+    if (selectedSubCategory) {
+      if (["Shirt", "Tshirt", "Dress"].includes(selectedSubCategory.name)) {
+        return (
           <div className="w-full">
-            <label className=" font-semibold block mb-2">Category</label>
+            <label className="font-semibold block mb-2">Size</label>
             <select
-              className="w-full max-w-md p-2 border border-gray-300 rounded-md"
-              value={category}
-              onChange={(e) => setCategory(e.target.value)}
-              required
-            >
-              <option value="">Select Category</option>
-              {categories.map((cat) => (
-                <option key={cat._id} value={cat._id}>
-                  {cat.name}
-                </option>
-              ))}
-            </select>
-          </div>
-          <div className="w-full">
-            <label className=" font-semibold block mb-2">SubCategory</label>
-            <select
-              className="w-full max-w-md p-2 border border-gray-300 rounded-md"
-              value={subCategory}
-              onChange={(e) => setSubCategory(e.target.value)}
-              disabled={!category}
-              required
-            >
-              <option value="">Select SubCategory</option>
-              {filteredSubCategories.map((sub) => (
-                <option key={sub._id} value={sub._id}>
-                  {sub.name}
-                </option>
-              ))}
-            </select>
-          </div>
-
-          <div className="w-full">
-            <label className=" font-semibold block mb-2">Brand</label>
-            <select
-              className="w-full max-w-md p-2 border border-gray-300 rounded-md"
-              value={brand}
-              onChange={(e) => setBrand(e.target.value)}
-              required
-            >
-              <option value="">Select Brand</option>
-              {brands.map((brand) => (
-                <option key={brand._id} value={brand._id}>
-                  {brand.name}
-                </option>
-              ))}
-            </select>
-          </div>
-
-          <div className="w-full">
-            <label className=" font-semibold block mb-2">Quantity</label>
-            <input
-              type="number"
-              className="w-full max-w-md p-2 border border-gray-300 rounded-md"
-              value={quantity}
-              onChange={(e) => setQuantity(e.target.value)}
-              required
-            />
-          </div>
-
-          <div className="w-full">
-            <label className=" font-semibold block mb-2">Color</label>
-            <input
-              type="text"
-              className="w-full max-w-md p-2 border border-gray-300 rounded-md "
-              placeholder="Color"
-              value={color}
-              onChange={(e) => setColor(e.target.value.split(","))}
-              required
-            />
-          </div>
-
-          <div className="w-full">
-            <label className=" font-semibold block mb-2">
-              Size
-            </label>
-            <input
-              type="text"
               className="w-full max-w-md p-2 border border-gray-300 rounded-md"
               value={size}
-              onChange={(e) => setSize(e.target.value.split(","))}
+              onChange={(e) => setSize(e.target.value)}
               required
-            />
-          </div>
-
-          <div className="w-full">
-            <label className=" font-semibold block mb-2">Base Price</label>
-            <input
-              type="number"
-              className="w-full max-w-md p-2 border border-gray-300 rounded-md"
-              value={basePrice}
-              onChange={(e) => setBasePrice(e.target.value)}
-              required
-            />
-          </div>
-
-          <div className="w-full">
-            <label className=" font-semibold block mb-2">Final Price</label>
-            <input
-              type="number"
-              className="w-full max-w-md p-2 border border-gray-300 rounded-md"
-              value={finalPrice}
-              onChange={(e) => setFinalPrice(e.target.value)}
-              required
-            />
-          </div>
-
-          <div className="mb-5">
-            <h4 className="mb-2 text-lg font-semibold">Upload Images</h4>
-            <div className="flex gap-2 flex-wrap">
-              <div className="flex-1 h-24 border-2 rounded-xl border-dashed border-gray-300 flex items-center justify-center text-gray-300 text-sm relative">
-                <label
-                  htmlFor="image-upload"
-                  className="absolute inset-0 cursor-pointer flex items-center justify-center text-gray-400"
-                >
-                  Click to upload images
-                  <input
-                    id="image-upload"
-                    type="file"
-                    multiple
-                    accept="image/*"
-                    onChange={handleImageUpload}
-                    className="hidden"
-                  />
-                </label>
-              </div>
-              {imagePreviews.map((img, index) => (
-                <img
-                  key={index}
-                  src={img}
-                  alt="Preview"
-                  className="w-24 h-24 rounded-md object-cover border border-gray-300"
-                />
-              ))}
-            </div>
-          </div>
-
-          <div className="col-span-2 flex justify-center">
-            <button
-              type="submit"
-              className=" w-40 py-2 px-4 bg-purple-800 text-white rounded-xl hover:bg-zinc-800"
             >
-              Submit
+              <option value="">Select Size</option>
+              {["S", "M", "L", "XS", "XL", "XXL"].map((s) => (
+                <option key={s} value={s}>{s}</option>
+              ))}
+            </select>
+          </div>
+        );
+      }
+
+      if (selectedSubCategory.name === "Jeans") {
+        return (
+          <div className="w-full">
+            <label className="font-semibold block mb-2">Pant Size</label>
+            <select
+              className="w-full max-w-md p-2 border border-gray-300 rounded-md"
+              value={numSize}
+              onChange={(e) => setPantSize(e.target.value)}
+              required
+            >
+              <option value="">Select Pant Size</option>
+              {["28", "30", "32", "34", "36"].map((p) => (
+                <option key={p} value={p}>{p}</option>
+              ))}
+            </select>
+          </div>
+        );
+      }
+
+      if (["Loafer-shoes", "Formal shoes", "Sport shoes"].includes(selectedSubCategory.name)) {
+        return (
+          <div className="w-full">
+            <label className="font-semibold block mb-2">Foot Size</label>
+            <select
+              className="w-full max-w-md p-2 border border-gray-300 rounded-md"
+              value={footSize}
+              onChange={(e) => setFootSize(e.target.value)}
+              required
+            >
+              <option value="">Select Foot Size</option>
+              {["1", "2", "3", "4", "5", "6", "7"].map((f) => (
+                <option key={f} value={f}>{f}</option>
+              ))}
+            </select>
+          </div>
+        );
+      }
+    }
+
+    return null;
+  };
+
+  return (
+    <div className="w-full max-w-4xl mx-auto mt-16 px-4 py-6 shadow-lg border-2 bg-indigo-100 border-gray-200 rounded-xl">
+      <h2 className="text-2xl font-bold mb-6 text-center">Add Product</h2>
+      <div className="flex justify-center">
+        <form onSubmit={handleSubmit} encType="multipart/form-data" className="w-full">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="w-full">
+              <label className="font-semibold block mb-2">Product Name</label>
+              <input
+                type="text"
+                className="w-full p-2 border border-gray-300 rounded-md"
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+                required
+              />
+            </div>
+            <div className="w-full">
+              <label className="font-semibold block mb-2">Category</label>
+              <select
+                className="w-full p-2 border border-gray-300 rounded-md"
+                value={category}
+                onChange={(e) => setCategory(e.target.value)}
+                required
+              >
+                <option value="">Select Category</option>
+                {categories.map((cat) => (
+                  <option key={cat._id} value={cat._id}>{cat.name}</option>
+                ))}
+              </select>
+            </div>
+
+            <div className="w-full">
+              <label className="font-semibold block mb-2">Subcategory</label>
+              <select
+                className="w-full p-2 border border-gray-300 rounded-md"
+                value={subCategory}
+                onChange={(e) => setSubCategory(e.target.value)}
+                required
+              >
+                <option value="">Select Subcategory</option>
+                {filteredSubCategories.map((sub) => (
+                  <option key={sub._id} value={sub._id}>{sub.name}</option>
+                ))}
+              </select>
+            </div>
+
+            {renderSizeFields()}
+
+            <div className="w-full">
+              <label className="font-semibold block mb-2">Brand</label>
+              <select
+                className="w-full p-2 border border-gray-300 rounded-md"
+                value={brand}
+                onChange={(e) => setBrand(e.target.value)}
+                required
+              >
+                <option value="">Select Brand</option>
+                {brands.map((b) => (
+                  <option key={b._id} value={b._id}>{b.name}</option>
+                ))}
+              </select>
+            </div>
+
+            <div className="w-full">
+              <label className="font-semibold block mb-2">Color</label>
+              <input
+                type="text"
+                className="w-full p-2 border border-gray-300 rounded-md"
+                placeholder="Color"
+                value={color}
+                onChange={(e) => setColor(e.target.value.split(","))}
+                required
+              />
+            </div>
+
+            <div className="w-full">
+              <label className="font-semibold block mb-2">Quantity</label>
+              <input
+                type="number"
+                className="w-full p-2 border border-gray-300 rounded-md"
+                value={quantity}
+                onChange={(e) => setQuantity(e.target.value)}
+                required
+              />
+            </div>
+
+            <div className="w-full">
+              <label className="font-semibold block mb-2">Base Price</label>
+              <input
+                type="number"
+                className="w-full p-2 border border-gray-300 rounded-md"
+                value={basePrice}
+                onChange={(e) => setBasePrice(e.target.value)}
+                required
+              />
+            </div>
+
+            <div className="w-full">
+              <label className="font-semibold block mb-2">Final Price</label>
+              <input
+                type="number"
+                className="w-full p-2 border border-gray-300 rounded-md"
+                value={finalPrice}
+                onChange={(e) => setFinalPrice(e.target.value)}
+                required
+              />
+            </div>
+
+            <div className="w-full">
+              <label className="font-semibold block mb-2">Description</label>
+              <textarea
+                className="w-full p-2 border border-gray-300 rounded-md"
+                value={description}
+                onChange={(e) => setDescription(e.target.value)}
+                required
+              />
+            </div>
+
+            <div className="w-full">
+              <label className="font-semibold block mb-2">Upload Images</label>
+              <input
+                type="file"
+                className="w-full p-2 border border-gray-300 rounded-md bg-white"
+                multiple
+                onChange={handleImageUpload}
+                required
+              />
+              <div className="flex flex-wrap mt-2">
+                {imagePreviews.map((preview, index) => (
+                  <img key={index} src={preview} alt="preview" className="w-20 h-20 object-cover mr-2" />
+                ))}
+              </div>
+            </div>
+
+          </div>
+          <div className="flex justify-center">
+            <button type="submit" className="text-center mt-6 w-full md:w-auto bg-blue-500 text-white py-2 px-6 rounded-md">
+              Add Product
             </button>
           </div>
-        </div>
-      </form>
+        </form>
+      </div>
     </div>
+
   );
 };
+
 export default AddProduct;
